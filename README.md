@@ -6,7 +6,7 @@
 
 ## Description
 
-_This is a simple api that holds user created data on state and national parks._
+_This is a simple api that holds user created data under the theme of state and national parks. There are two tables generated from the migrations. One that holds user, and another to hold parks. There is rudimentary static token authentication implemented in the delete and edit functions._
 
 ## Setup/Installation Requirements
 
@@ -15,9 +15,10 @@ _This is a simple api that holds user created data on state and national parks._
   (VSCode, Atom, etc.)
 3. Set up your database Default Connection in appsettings.json in the ParksApi directory. Change these settings: 'server', 'port', 'uid', and 'pwd' to your own personal values for your SQL service. Set the 'database' setting to: **jason_macie**<br>
 **Example:** `"DefaultConnection": "Server=localhost;Port=3306;database=jason_macie;uid=root;pwd=epicodus;"`
-4. Build project and database with the commands: `dotnet build` | `dotnet ef database update`
+4. Open a terminal set to the ParksApi directory. Build project and database with the commands: `dotnet build` | `dotnet ef database update`
 5. Launch the API with: `dotnet run`
-6. Use the Queries listed below in Specs to interact with the database.
+6. Get a user token by POST `https://localhost:****/users/authenticate` matching the username and password of the only user in the database.
+7. Use the Queries listed below in Specs to interact with the database. PUT and DELETE queries require a token in the authroization header to work.
 
 ## Known Bugs
 
@@ -50,9 +51,13 @@ Raw body structure of POST/PUT requests using JSON format.
   "type": "National",
   "description": "It's big...",
   "rating": 5,
-  "imageUrl": null
 }
 ```
+
+### Further Exploration
+
+* Make Authentication dynamic with tokens that time out.
+* Integrate UserId into Parks Model to add another layer of authentication. 
 
 ### License
 
