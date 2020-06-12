@@ -20,11 +20,11 @@ namespace ParksApi.Controllers
     }
 
     // GET api/Parks
-    [HttpGet]
-    public ActionResult<IEnumerable<Park>> Get()
-    {
-      return _db.Parks.ToList();
-    }
+    // [HttpGet]
+    // public ActionResult<IEnumerable<Park>> Get()
+    // {
+    //   return _db.Parks.ToList();
+    // }
 
     // POST api/Parks
     [HttpPost]
@@ -65,41 +65,36 @@ namespace ParksApi.Controllers
       }
     }
 
-    // // GET api/Parks
-    // [HttpGet]
-    // // public ActionResult<IEnumerable<Park>> Get(string name, string type, string rating, string category, string description, int userId)
-    // public ActionResult<Dictionary<string, object>> Get(string name, string type, string rating, string category, string description, int userId)
-    // {
-    //   var query = _db.Parks.AsQueryable();
+    // GET api/Parks
+    [HttpGet]
+    // public ActionResult<IEnumerable<Park>> Get(string name, string type, string rating, string category, string description, int userId)
+    public ActionResult<Dictionary<string, object>> Get(string name, string type, string description, int userId)
+    {
+      var query = _db.Parks.AsQueryable();
 
-    //   if (name != null)
-    //   {
-    //     query = query.Where(entry => entry.Name == name);
-    //   }
+      if (name != null)
+      {
+        query = query.Where(entry => entry.Name == name);
+      }
 
-    //   if (type != null)
-    //   {
-    //     query = query.Where(entry => entry.Type.Contains(type));
-    //   }
+      if (type != null)
+      {
+        query = query.Where(entry => entry.Type.Contains(type));
+      }
 
-    //   if (description != null)
-    //   {
-    //     query = query.Where(entry => entry.Description.Contains(description));
-    //   }
+      if (description != null)
+      {
+        query = query.Where(entry => entry.Description.Contains(description));
+      }
 
-    //   if (rating != null)
-    //   {
-    //     query = query.Where(entry => entry.Rating == rating);
-    //   }
-
-    // //   if (userId != 0)
-    // //   {
-    // //     query = query.Where(entry => entry.UserId == userId);
-    // //   }
-    //   Dictionary<string, object> response = new Dictionary<string, object>();
-    //   response.Add("parks", query);
-    //   return response;
-    // }
+      if (userId != 0)
+      {
+        query = query.Where(entry => entry.UserId == userId);
+      }
+      Dictionary<string, object> response = new Dictionary<string, object>();
+      response.Add("parks", query);
+      return response;
+    }
     // Token:
     // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE1OTE5OTQ4NzAsImV4cCI6MTU5MjU5OTY3MCwiaWF0IjoxNTkxOTk0ODcwfQ.2NuRz_P1wDyKoFwu54Tykw_e3gMv3ab1MvxGbUy8qbc   
   }
