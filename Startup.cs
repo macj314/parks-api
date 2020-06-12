@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿ParksApiusing Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +11,11 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using TravelApi.Helpers;
-using TravelApi.Models;
-using TravelApi.Services;
+using ParksApi.Helpers;
+using ParksApi.Models;
+using ParksApi.Services;
 
-namespace TravelApi
+namespace ParksApi
 {
   public class Startup
     {
@@ -30,7 +30,7 @@ namespace TravelApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddDbContext<TravelApiContext>(opt =>
+            services.AddDbConParksApiContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("DefaultConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -40,7 +40,7 @@ namespace TravelApi
                 c.SwaggerDoc("v1", new OpenApiInfo
                 { 
                     Version = "v1",
-                    Title = "Travel Api",
+                    Title = "Parks Api",
                     Description = "A site where users can add entries of places visited with ratings and descriptions",
                 });
 
