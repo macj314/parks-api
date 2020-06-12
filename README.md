@@ -39,9 +39,9 @@ There are no known bugs at the time of this update.
 | Spec | Input | Result Behavior |
 | :------------- | :------------- | :------------- |
 | **Users can use a get query to see a list of all parks.** | GET request to -> `https://localhost:****/api/parks` | Display a list of park object |
-| **Users can add a park to either list.** | POST to -> https://`localhost:****/api/parks` with the body structure of displayed below this table. Also make sure the format type is JSON. | A new park with the entered attributes will be added to the list of parks. It's ID will be the next sequential number after the last added ParkID in the list. |
+| **Users can add a park to either list.** | POST to -> https://`localhost:****/api/parks` with the body structure of the code block displayed below this table. Make sure the format type is JSON. | A new park with the entered attributes will be added to the list of parks. It's ID will be the next sequential number after the last added ParkID in the list. |
 | **Users can delete a park from the database** | DELETE request to specific park -> `https://localhost:****/api/parks/1` | The Park with ParkId of 1 will be deleted from the list. |
-| **Users can edit a park in the database** | PUT to specific park -> `https://localhost:****/api/parks/2` Follow the body structure below the table (like the post command). Change 1 or multiple aspects of that park. | Original park: `Name: "Olympic"` Changes to be made: `Name: "Big Park"`|
+| **Users can edit a park in the database** | PUT to specific park -> `https://localhost:****/api/parks/2` Follow the body structure below the table (like the post command). Change 1 or multiple aspects of that park. | Original park: `Name: "Olympic"`<br> Changes to be made: `Name: "Big Park"`|
 
 Raw body structure of POST/PUT requests using JSON format.
 ```
