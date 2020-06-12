@@ -17,6 +17,5 @@ namespace ParksApi.Models
     [Required]
     public int Rating { get; set; }
     public string ImageUrl { get; set; }
-    
   }
 }

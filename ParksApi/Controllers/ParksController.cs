@@ -41,29 +41,29 @@ namespace ParksApi.Controllers
       return _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
     }
 
-    //PUT api/parks/userId/parkId
-    // [HttpPut("{userId}/{id}")]
-    // public void Put(int userId, int id, [FromBody] Park park)
-    // {
-    //   park.ParkId = id;
+    // PUT api/parks/userId/parkId
+    [HttpPut("{id}")]//{userId}/
+    public void Put(int id, [FromBody] Park park)//int userId, 
+    {
+      park.ParkId = id;
     //   if (park.UserId == userId)
-    //   {
-    //     _db.Entry(park).State = EntityState.Modified;
-    //     _db.SaveChanges();
-    //   }
-    // }
+      {
+        _db.Entry(park).State = EntityState.Modified;
+        _db.SaveChanges();
+      }
+    }
 
     //http://localhost:5000/api/parks/1/9
-    // [HttpDelete("{userId}/{id}")]
-    // public void Delete(int id, int userId)
-    // {
-    //   var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
+    [HttpDelete("{id}")]//{userId}/{id}
+    public void Delete(int id)//int id, int userId
+    {
+      var parkToDelete = _db.Parks.FirstOrDefault(entry => entry.ParkId == id);
     //   if (parkToDelete.UserId == userId)
-    //   {
-    //     _db.Parks.Remove(parkToDelete);
-    //     _db.SaveChanges();
-    //   }
-    // }
+      {
+        _db.Parks.Remove(parkToDelete);
+        _db.SaveChanges();
+      }
+    }
 
     // // GET api/Parks
     // [HttpGet]
