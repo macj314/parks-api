@@ -22,4 +22,3 @@ namespace ParksApi
                 .UseStartup<Startup>();
     }
 }
-
